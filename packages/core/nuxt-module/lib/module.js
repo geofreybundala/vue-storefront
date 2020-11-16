@@ -1,7 +1,6 @@
 // TODO proper bundling, for now it's just to experiment with nuxt modules api
 const fs = require('fs');
 const path = require('path');
-
 const log = require('./helpers/log');
 const merge = require('./helpers/merge');
 const resolveDependency = require('./helpers/resolveDependency');
