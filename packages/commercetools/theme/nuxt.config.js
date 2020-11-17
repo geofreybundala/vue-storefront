@@ -39,6 +39,9 @@ export default {
     '@nuxt/typescript-build',
     ['@vue-storefront/nuxt', {
       coreDevelopment: true,
+      performance: {
+        purgeCSS: true
+      },
       logger: {
         verbosity: 'error'
       },
