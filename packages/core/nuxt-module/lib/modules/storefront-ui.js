@@ -25,18 +25,7 @@ function loadStorefrontStylesAndVariables () {
   this.addModule('@nuxtjs/style-resources');
 }
 
-function loadPurgeCss() {
-  this.options.purgeCSS = {
-    paths: [
-      '**/*.vue'
-    ]
-  };
-
-  this.addModule('nuxt-purgecss');
-}
-
 module.exports = function VueStorefrontPerformanceModule (options) {
   loadStorefrontRawSources.call(this, options);
   loadStorefrontStylesAndVariables.call(this);
-  loadPurgeCss.call(this);
 };

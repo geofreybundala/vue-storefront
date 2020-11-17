@@ -12,7 +12,8 @@ module.exports = function VueStorefrontNuxtModule (moduleOptions) {
   const defaultOptions = {
     coreDevelopment: false,
     performance : {
-      httpPush: true
+      httpPush: true,
+      purgeCSS: false
     },
     useRawSource: {
       dev: [],
@@ -46,10 +47,9 @@ module.exports = function VueStorefrontNuxtModule (moduleOptions) {
   log.success('Installed nuxt Composition API Module');
 
   // Performance module
-  if (options.performance.httpPush) {
-    performanceModule.call(this);
-    log.success('Installed Performance Module');
-  }
+  performanceModule.call(this, options);
+  log.success('Installed Performance Module');
+
 
   // StorefrontUI module
   if (fs.existsSync(resolveDependency('@storefront-ui/vue'))) {
