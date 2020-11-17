@@ -40,7 +40,9 @@ export default {
     ['@vue-storefront/nuxt', {
       coreDevelopment: true,
       performance: {
-        purgeCSS: true
+        purgeCSS: {
+          enabled: true
+        }
       },
       logger: {
         verbosity: 'error'

@@ -13,14 +13,14 @@ function pushScripts() {
   });
 }
 
-function loadPurgeCss() {
-  this.options.purgeCSS = {
+function loadPurgeCss(moduleOptions) {
+  const options = merge(moduleOptions, {
     paths: [
       '**/*.vue'
     ]
-  };
+  });
 
-  this.addModule('nuxt-purgecss');
+  this.addModule([ 'nuxt-purgecss', options ]);
 }
 
 module.exports = function VueStorefrontPerformanceModule (options) {
@@ -30,7 +30,7 @@ module.exports = function VueStorefrontPerformanceModule (options) {
     pushScripts.call(this);
   }
 
-  if (purgeCSS) {
-    loadPurgeCss.call(this);
+  if (purgeCSS && purgeCSS.enabled) {
+    loadPurgeCss.call(this, purgeCSS);
   }
 };
