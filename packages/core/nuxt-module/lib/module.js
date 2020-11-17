@@ -14,7 +14,10 @@ module.exports = function VueStorefrontNuxtModule (moduleOptions) {
     performance : {
       httpPush: true,
       purgeCSS: {
-        enabled: false
+        enabled: false,
+        paths: [
+          '**/*.vue'
+        ]
       }
     },
     useRawSource: {
