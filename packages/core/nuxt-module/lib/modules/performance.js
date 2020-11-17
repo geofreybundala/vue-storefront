@@ -20,7 +20,8 @@ function loadPurgeCss(moduleOptions) {
     ]
   });
 
-  this.addModule([ 'nuxt-purgecss', options ]);
+  // PurgeCSS module should be installed after all other modules
+  this.nuxt.hook('modules:done', moduleContainer => moduleContainer.addModule([ 'nuxt-purgecss', options ]));
 }
 
 module.exports = function VueStorefrontPerformanceModule (options) {

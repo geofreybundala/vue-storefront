@@ -37,19 +37,6 @@ export default {
   buildModules: [
     // to core
     '@nuxt/typescript-build',
-    // @core-development-only-start
-    ['@vue-storefront/nuxt-theme', {
-      generate: {
-        replace: {
-          apiClient: '@vue-storefront/commercetools-api',
-          composables: '@vue-storefront/commercetools'
-        }
-      }
-    }],
-    // @core-development-only-end
-    /* project-only-start
-    ['@vue-storefront/nuxt-theme'],
-    project-only-end */
     ['@vue-storefront/nuxt', {
       coreDevelopment: true,
       performance: {
@@ -71,6 +58,19 @@ export default {
         ]
       }
     }],
+    // @core-development-only-start
+    ['@vue-storefront/nuxt-theme', {
+      generate: {
+        replace: {
+          apiClient: '@vue-storefront/commercetools-api',
+          composables: '@vue-storefront/commercetools'
+        }
+      }
+    }],
+    // @core-development-only-end
+    /* project-only-start
+    ['@vue-storefront/nuxt-theme'],
+    project-only-end */
     ['@vue-storefront/commercetools/nuxt', {
       api: {
         uri: 'https://api.commercetools.com/vsf-ct-dev/graphql',
